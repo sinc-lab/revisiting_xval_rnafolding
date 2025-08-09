@@ -2,7 +2,8 @@
 __pycache__/
 *.py[codz]
 *$py.class
-
+working_path 
+cache 
 # C extensions
 *.so
 
