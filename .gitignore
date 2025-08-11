@@ -2,7 +2,7 @@
 __pycache__/
 *.py[codz]
 *$py.class
-working_path 
+output_* 
 cache 
 # C extensions
 *.so
