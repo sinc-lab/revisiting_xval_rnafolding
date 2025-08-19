@@ -3,15 +3,15 @@ import pandas as pd
 import json
 
 # read dataset and predefined partitions (the files are available in this repository)
-run_name = "kfold"
-device = "cuda:1"
+run_name = "famfold"
+device = "cuda:0"
 
 dataset = pd.read_csv("data/ArchiveII.csv", index_col="id")
-if run_name == "famfold":
-    partitions = pd.read_csv("data/split_famfold.csv")
-elif run_name == "kfold":
-    partitions = pd.read_csv("data/split_kfold.csv")
-    
+run_name = "hlfolds"
+
+partitions = pd.read_csv(f"data/split_{run_name}.csv")
+
+#config = {"interaction_prior": "probmat", "patience": 10, "filters": 32, "num_layers": 2, "bottleneck1_resnet2d": 256, "bottleneck2_resnet2d": 128,  "filters_resnet2d": 256, "rank": 64, "lr": 1e-4}
 config = {"patience": 10}
 
 for fold in sorted(partitions.fold_number.unique()):
